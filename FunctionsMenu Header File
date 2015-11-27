@@ -1,0 +1,107 @@
+#define MAX 128
+#include <string.h>
+
+char dispsched(){
+	
+
+
+     int i,haves[MAX];
+    printf("\n\n\t\tDE LA SALLE UNIVERSITY MANILA\n");
+            printf("\t\tTerm 2 A.Y. 2014 - 2015\n");
+            printf("NAME: Amiel Lumbuan\tMAJOR: Mechanical Engineering\n");
+            printf("SUBJECT\t\tSECTION\tUNITS\tDAY\tTIME\t\tROOM\n");
+            printf("---------------------------------------------------------------------\n"); 
+           
+            for(i=0;i<10;i++){                                   
+               printf("%s\n",sar[i].scomp);                            
+            }
+            system("PAUSE");
+            return 0;
+     }
+       
+char addclass(){
+
+	char search[MAX];
+	int i,n,end,j,haves[10]={-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};	
+	subjlist();
+	sshop();
+
+	while(end!=2){
+	 printf("Search class: ");
+	 scanf("%s",&search);
+
+	 for(i=0;i<10;i++){
+		if(strcmp(search,ar[i].name)==0){
+	    	printf("%s\n",ar[i].comp);
+	    	haves[i]=i;
+	    	
+			printf("Do you want to add?: 1.YES or 2.NO: ");
+			scanf("%d",&n);
+			
+			if(n==1){
+				strcpy(sar[i].scomp,ar[i].comp);
+				 printf("\n\n\t\tDE LA SALLE UNIVERSITY MANILA\n");
+            	printf("\t\tTerm 2 A.Y. 2014 - 2015\n");
+           		 printf("NAME: Amiel Lumbuan\tMAJOR: Mechanical Engineering\n");
+            	printf("SUBJECT\t\tSECTION\tUNITS\tDAY\tTIME\t\tROOM\n");
+            	printf("---------------------------------------------------------------------\n"); 		
+				for(j=0;j<10;j++){                     
+                	if(haves[j]!= -1){
+					 printf("%s\n",sar[j].scomp);	
+		 			}
+				}
+			}
+			else if(n==2){
+		 		break;
+			}
+			else{
+				printf("Wrong input\n");
+				system("pause");
+				system("cls");
+			}
+		break;
+		}
+	//else {
+//	printf("None Found\n");
+//	system("pause");
+//	system("cls");
+	//break;
+//	}
+	 }
+	printf("Continue Searching: 1.YES or 2.NO: ");
+	scanf("%d",&end);
+	system("cls");
+	}	
+	return 0;
+ }
+
+
+void removeclass()	{
+     int i;
+     char removeclass[MAX];
+     printf("Which Class to Remove?: ");
+     scanf("%s",&removeclass);
+     for(i=0;i<=10;i++){
+     if(strcmp(removeclass,ar[i].name)==0){
+     sar[i].scomp[i]='\0';
+     
+     dispsched();
+     }
+     //else{
+          //printf("No Result");
+          //}
+     }
+     system("PAUSE");
+     }
+     
+void viewclass(){
+     int j,haves[MAX];
+     printf("AVAILABLE CLASSES:\n");
+     printf("SUBJECT\t\tSECTION\tUNITS\tDAY\tTIME\t\tROOM\n");
+     printf("---------------------------------------------------------------------\n"); 
+           
+            for(j=0;j<=10;j++){                     
+               printf("%s\t\t%s\t%s\t%s\t%s\t%s\n",ar[j].name,ar[j].section,ar[j].units,ar[j].days,ar[j].time,ar[j].room);         
+               }   
+            
+     }
